@@ -1,5 +1,5 @@
 
-import Header from "./Components/Header/header"
+import Header from "./Components/Header/Header"
 import { ItemListContainer } from "./Components/ItemListContainer/ItemListContainer";
 
 function App() {
@@ -7,6 +7,7 @@ function App() {
     <div className="App">
         <Header />
         <ItemListContainer usuario="darling" />
+        
     </div>
     );
 }
