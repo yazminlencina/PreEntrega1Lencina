@@ -1,12 +1,21 @@
 import React from 'react'
+import ProductCard from '../ProductCard/ProductCard';
 
-const ItemList = ({items}) => {
-    
+const ItemList = ({ items }) => {
     return (
-    <div>
-        {items.map( (elemento) => (<ItemList item={elemento} key={elemento.title}/>))}
-    </div>
-    )
-}
+        <div 
+            style={{
+                width: "40%",
+                display:"flex", 
+                justifyContent: "center",
+                height: "100vh",
+            }}
+        >
+            {items.map((elemento) => {
+                return <ProductCard elemento={elemento} key={elemento.id} />;
+            })}
+        </div>
+    );
+};
 
 export default ItemList
