@@ -1,9 +1,9 @@
 import React from 'react'
-import ItemDetailContainer from '../ItemDetailContainer/ItemDetailContainer'
+import ItemList from '../ItemList/ItemList'
 
-const ItemDetail = ( ) => {
+const ItemDetail = ( {items} ) => {
     return (
-        <ItemDetailContainer />
+        <ItemList />
     )
 }
 

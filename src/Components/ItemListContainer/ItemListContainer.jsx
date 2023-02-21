@@ -1,6 +1,9 @@
 import { useEffect, useState } from "react";
 import { products } from "../../productsMock";
+import { useParams } from "react-router-dom";
 import ItemList from "../ItemList/ItemList";
+
+
 
 const productos = [
     {
@@ -9,7 +12,7 @@ const productos = [
         price: 12000,
         stock: 20,
         description: "Perfecta para un otoño a la moda",
-        category: "Chic",
+        category: "Coquette",
         img: "https://res.cloudinary.com/dxq73a2w7/image/upload/v1676156313/7be0c187802c70471f2d74ae261a0cf5_kzdwsi.jpg",
     },
     {
@@ -42,6 +45,10 @@ const productos = [
 ];
 
 export const ItemListContainer = (props) => {
+
+    const {name} = useParams()
+    console.log("Así llega la categoría: ", name)
+
     console.log(props.usuario);
 
     const [items, setItems] = useState([]);
@@ -51,9 +58,14 @@ export const ItemListContainer = (props) => {
     const errorMessage = "El servidor está caído";
 
     useEffect(() => {
+
+
+        const productsFiltered = products.filter( (product)=> product.category === name )
+
+
         const task = new Promise((resolve, reject) => {
             setTimeout(() => {
-                resolve(products);
+                resolve( name ? productsFiltered : products );
             }, 2000);
         });
 
@@ -62,19 +74,20 @@ export const ItemListContainer = (props) => {
         }).catch((error) => {
             console.log("Acá se rechazó", error);
         });
-    }, []);
+    }, [ name ]);
 
     return (
         <>
             <div>
                 <h2
                     style={{
+                        paddingTop: "10px",
                         display: "flex",
                         width: "100%",
                         justifyContent: "center",
                     }}>
-                    Hello {props.usuario}! Te damos la bienvenida a nuestra
-                    tienda
+                    ¡Hola{props.usuario}! Te damos la bienvenida a nuestra
+                    tienda.
                 </h2>
             </div>
 
