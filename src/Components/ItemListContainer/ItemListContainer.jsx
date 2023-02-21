@@ -78,9 +78,7 @@ export const ItemListContainer = (props) => {
                 </h2>
             </div>
 
-            <div>
-                <ItemList items={items} />
-            </div>
+            
         </>
     );
 };

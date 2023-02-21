@@ -1,27 +1,24 @@
-
-import Header from "./Components/Header/Header"
+import Navbar from "./Components/Navbar/Navbar"
+import ItemDetailContainer from "./Components/ItemDetailContainer/ItemDetailContainer";
 import { ItemListContainer } from "./Components/ItemListContainer/ItemListContainer";
 
 import { BrowserRouter, Routes, Route } from "react-router-dom"
-import { HiMenuAlt1 } from "react-icons/hi";
+
+
 
 function App() {
-    return (
-    //<div className="App">
-        //<Header />
-        //<ItemListContainer usuario="darling" />
-        //</div> 
-        //    
+    return (   
         <BrowserRouter>
 
 
-        <Header />
+        <Navbar />
 
 
             <Routes>
 
                 <Route path="/" element={ <ItemListContainer /> } />
                 <Route path="/category/:id" element={ <ItemListContainer /> } />
+                <Route path="/item/:id" element={ <ItemDetailContainer /> } />
                 <Route path="*" element={ <h1>Oh no! 404 not found</h1> } />
 
 
